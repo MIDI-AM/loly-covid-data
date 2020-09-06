@@ -28,7 +28,7 @@ const queries = {
             if(err){
                 console.log(err)
             }else{
-                res.status(200).send(result.rows)
+                res.status(200).send(result)
                 console.log('usuario creado...')
             }
         })
@@ -48,6 +48,7 @@ const queries = {
     },
     updateUsuarioByDate: (req, res) => {
         let date = req.params.date
+        
         let {nombre, edad, personaje_favorito, actividad_favorita, fecha_registro, version_cuento} = req.body
         pool.query('UPDATE usuarios SET nombre = $1, edad = $2, personaje_favorito = $3, actividad_favorita = $4, fecha_registro = $5, version_cuento = $6 WHERE fecha_registro = $7', [nombre, edad, personaje_favorito, actividad_favorita, fecha_registro , version_cuento,date],
         (err, result)=>{
@@ -56,6 +57,7 @@ const queries = {
             }else{
                 res.status(200).send(result)
                 console.log('usuario actualizado...')
+                console.log(date)
             }
         })
     },

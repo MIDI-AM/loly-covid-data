@@ -5,8 +5,8 @@ const router = expres.Router()
 router.get('/usuarios', model.getUsuarios)
 router.get('/usuarios/:id', model.getUsuarioByID)
 router.post('/usuarios', model.createUsuario)
-router.put('/usuarios/:id', model.updateUsuario)
+//router.put('/usuarios/:id', model.updateUsuario)
 router.put('/usuarios/:date', model.updateUsuarioByDate)
-router.delete('/usaurios/:id', model.deleteUsuario)
+router.delete('/usuarios/:id', model.deleteUsuario)
 
 module.exports = router
