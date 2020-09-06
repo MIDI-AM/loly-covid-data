@@ -22,8 +22,8 @@ const queries = {
         })
     },
     createUsuario: (req,res)=>{
-        let {nombre, edad, personaje_favorito, actividad_favorita} = req.body
-        pool.query('INSERT INTO usuarios (nombre, edad, personaje_favorito, actividad_favorita) VALUES ($1,$2,$3,$4)', [nombre, edad, personaje_favorito, actividad_favorita],
+        let {nombre, edad, personaje_favorito, actividad_favorita, fecha_registro, version_cuento} = req.body
+        pool.query('INSERT INTO usuarios (nombre, edad, personaje_favorito, actividad_favorita, fecha_registro, version_cuento) VALUES ($1,$2,$3,$4, $5, $6)', [nombre, edad, personaje_favorito, actividad_favorita, fecha_registro, version_cuento],
         (err, result)=>{
             if(err){
                 console.log(err)
@@ -35,8 +35,8 @@ const queries = {
     },
     updateUsuario: (req, res) => {
         let id = req.params.id
-        let {nombre, edad, personaje_favorito, actividad_favorita} = req.body
-        pool.query('UPDATE usuarios SET nombre = $1, edad = $2, personaje_favorito = $3, actividad_favorita = $4 WHERE id = $5', [nombre, edad, personaje_favorito, actividad_favorita, id],
+        let {nombre, edad, personaje_favorito, actividad_favorita, fecha_registro, version_cuento} = req.body
+        pool.query('UPDATE usuarios SET nombre = $1, edad = $2, personaje_favorito = $3, actividad_favorita = $4, fecha_registro = $5, version_cuento = $6 WHERE id = $7', [nombre, edad, personaje_favorito, actividad_favorita, fecha_registro , version_cuento,id],
         (err, result)=>{
             if(err){
                 console.log(err)
