@@ -28,7 +28,7 @@ const queries = {
             if(err){
                 console.log(err)
             }else{
-                res.status(200).send(result)
+                res.status(200).send(result.rows)
                 console.log('usuario creado...')
             }
         })
